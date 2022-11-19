@@ -1,0 +1,105 @@
+show running-config
+Building configuration...
+
+Current configuration : 1513 bytes
+!
+version 12.4
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname RouterBorde
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 5 $1$FByV$Nv47d2XIfDXP5x/N3HsX4.
+!
+no aaa new-model
+memory-size iomem 5
+ip cef
+!
+!
+!
+!
+ip domain name valorant.com
+ip auth-proxy max-nodata-conns 3
+ip admission max-nodata-conns 3
+!
+!
+!
+username admin secret 5 $1$V5x0$WaMPLyIwatu1gNGdz84gF/
+!
+!
+ip ssh version 2
+! 
+!
+!
+!
+interface FastEthernet0/0
+ ip address 8.22.3.174 255.255.255.252
+ ip ospf priority 255
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/1
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+interface Serial0/0/0
+ ip address 10.0.0.5 255.255.255.252
+ no fair-queue
+ clock rate 2000000
+!
+interface Serial0/1/0
+ ip address 10.0.0.1 255.255.255.252
+ clock rate 2000000
+!
+router eigrp 1
+ redistribute ospf 100 metric 1 1 1 1 1
+ network 8.22.3.172 0.0.0.3
+ network 10.0.0.0 0.0.0.3
+ network 10.0.0.4 0.0.0.3
+ auto-summary
+!
+router ospf 100
+ log-adjacency-changes
+ redistribute eigrp 1 metric 500 subnets
+ redistribute rip metric 500 subnets
+ network 8.22.3.172 0.0.0.3 area 0
+ default-information originate
+!
+router rip
+ version 2
+ redistribute ospf 100 metric 1
+ network 8.0.0.0
+ network 10.0.0.0
+!
+ip forward-protocol nd
+!
+!
+ip http server
+no ip http secure-server
+!
+!
+!
+!
+control-plane
+!
+!
+!
+line con 0
+line aux 0
+line vty 0 4
+ login local
+ transport input ssh
+line vty 5 15
+ login local
+ transport input ssh
+!
+scheduler allocate 20000 1000
+end
+
+RouterBorde#

@@ -1,0 +1,52 @@
+show ip route
+Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route
+
+Gateway of last resort is 10.0.0.6 to network 0.0.0.0
+
+     8.0.0.0/8 is variably subnetted, 11 subnets, 6 masks
+D       8.0.0.0/8 is a summary, 01:15:48, Null0
+O       8.22.2.0/24 [110/783] via 8.22.3.173, 01:14:50, FastEthernet0/0
+O       8.22.3.0/26 [110/783] via 8.22.3.173, 01:14:50, FastEthernet0/0
+O       8.22.0.0/23 [110/783] via 8.22.3.173, 01:14:50, FastEthernet0/0
+O       8.22.3.64/27 [110/783] via 8.22.3.173, 01:14:50, FastEthernet0/0
+O       8.22.3.96/27 [110/783] via 8.22.3.173, 01:14:50, FastEthernet0/0
+O       8.22.3.128/27 [110/783] via 8.22.3.173, 01:14:50, FastEthernet0/0
+C       8.22.3.172/30 is directly connected, FastEthernet0/0
+O       8.22.3.168/30 [110/782] via 8.22.3.173, 01:14:50, FastEthernet0/0
+O       8.22.3.164/30 [110/782] via 8.22.3.173, 01:14:50, FastEthernet0/0
+O       8.22.3.160/30 [110/1563] via 8.22.3.173, 01:14:50, FastEthernet0/0
+     10.0.0.0/8 is variably subnetted, 4 subnets, 2 masks
+D       10.0.0.8/30 [90/2681856] via 10.0.0.6, 01:08:38, Serial0/0/0
+                    [90/2681856] via 10.0.0.2, 01:08:38, Serial0/1/0
+C       10.0.0.0/30 is directly connected, Serial0/1/0
+D       10.0.0.0/8 is a summary, 01:15:48, Null0
+C       10.0.0.4/30 is directly connected, Serial0/0/0
+     149.69.0.0/16 is variably subnetted, 10 subnets, 4 masks
+D       149.69.2.128/25 [90/3198976] via 10.0.0.2, 00:09:28, Serial0/1/0
+D       149.69.3.128/25 [90/2684672] via 10.0.0.2, 00:24:28, Serial0/1/0
+D       149.69.4.4/30 [90/2684416] via 10.0.0.2, 00:24:28, Serial0/1/0
+D       149.69.0.0/24 [90/3198976] via 10.0.0.2, 00:09:28, Serial0/1/0
+R       149.69.0.0/16 [120/1] via 10.0.0.2, 00:00:08, Serial0/1/0
+D       149.69.1.0/24 [90/2686976] via 10.0.0.2, 00:24:28, Serial0/1/0
+D       149.69.2.0/25 [90/3198976] via 10.0.0.2, 00:09:28, Serial0/1/0
+D       149.69.3.0/25 [90/2684672] via 10.0.0.2, 00:24:28, Serial0/1/0
+D       149.69.4.0/30 [90/3196416] via 10.0.0.2, 00:24:28, Serial0/1/0
+D       149.69.4.12/30 [90/2172416] via 10.0.0.2, 00:30:04, Serial0/1/0
+     192.168.2.0/24 is variably subnetted, 9 subnets, 3 masks
+R       192.168.2.40/30 [120/2] via 10.0.0.6, 00:00:07, Serial0/0/0
+R       192.168.2.44/30 [120/1] via 10.0.0.6, 00:00:07, Serial0/0/0
+R       192.168.2.32/30 [120/3] via 10.0.0.6, 00:00:07, Serial0/0/0
+R       192.168.2.36/30 [120/2] via 10.0.0.6, 00:00:07, Serial0/0/0
+R       192.168.2.8/29 [120/3] via 10.0.0.6, 00:00:07, Serial0/0/0
+R       192.168.2.0/29 [120/3] via 10.0.0.6, 00:00:07, Serial0/0/0
+D       192.168.2.0/24 [90/2172416] via 10.0.0.6, 01:08:38, Serial0/0/0
+R       192.168.2.24/29 [120/3] via 10.0.0.6, 00:00:07, Serial0/0/0
+R       192.168.2.16/29 [120/2] via 10.0.0.6, 00:00:07, Serial0/0/0
+R*   0.0.0.0/0 [120/1] via 10.0.0.6, 00:00:07, Serial0/0/0
+RouterBorde#
